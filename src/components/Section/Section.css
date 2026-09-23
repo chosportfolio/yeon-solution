@@ -723,6 +723,12 @@
   object-fit: contain;
 }
 
+.certification-empty {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e5e5e5, #cccccc);
+}
+
 .certification-pdf {
   position: absolute;
   right: 22px;
@@ -742,47 +748,6 @@
 .certification-card.has-pdf:focus-visible .certification-pdf {
   opacity: 1;
   transform: translateY(0);
-}
-
-.certification-placeholder {
-  width: 100%;
-  height: 100%;
-  padding: 22px 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border: 1px solid #ededed;
-  background: linear-gradient(145deg, #ffffff, #fafafa);
-}
-
-.certification-placeholder strong {
-  margin-bottom: auto;
-  color: #a50034;
-  font-size: 14px;
-  letter-spacing: 1px;
-}
-
-.certification-placeholder i {
-  width: 100%;
-  height: 1px;
-  margin-top: 12px;
-  display: block;
-  background: #dddddd;
-}
-
-.certification-placeholder i:nth-of-type(2) {
-  width: 82%;
-}
-
-.certification-placeholder i:nth-of-type(3) {
-  width: 58%;
-}
-
-.certification-placeholder small {
-  margin-top: 22px;
-  color: #999999;
-  font-size: 10px;
-  letter-spacing: 1.5px;
 }
 
 .certification-card:hover .certification-document {

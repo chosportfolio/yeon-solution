@@ -13,8 +13,6 @@ import seoulStation from "../../assets/construction location/서울역.jpg";
 import dongA from "../../assets/construction location/동원오츠카 청주.png";
 import mechanicalCertificate from "../../assets/기계설비.png";
 import businessLicense from "../../assets/사업자등록증.png";
-import creditRating from "../../assets/신용평가등급확인서.png";
-import safetyEvaluation from "../../assets/안전보건(SH) 평가 보고서.png";
 import constructionLicense from "../../assets/연솔루션 건설업 등록증.png";
 import img_video_13 from "../../assets/img_video_13.jpg";
 import img_video_14 from "../../assets/img_video_14.jpg";
@@ -131,14 +129,10 @@ const certifications: Certification[] = [
   {
     title: "SH 안전보건 평가",
     description: "안전보건 관리 역량 평가",
-    image: safetyEvaluation,
-    pdf: findDocumentPdf("안전보건"),
   },
   {
     title: "신용등급평가서",
     description: "기업 신용평가 자료",
-    image: creditRating,
-    pdf: findDocumentPdf("신용"),
   },
   {
     title: "사업자등록증",
@@ -383,7 +377,7 @@ export default function MainSection() {
           </div>
 
           <div className="certification-list">
-            {certifications.map((certification, index) => (
+            {certifications.map((certification) => (
               <a
                 className={`certification-card${
                   certification.pdf ? " has-pdf" : ""
@@ -405,13 +399,7 @@ export default function MainSection() {
                       alt={`${certification.title} 서류`}
                     />
                   ) : (
-                    <div className="certification-placeholder" aria-hidden="true">
-                      <strong>{String(index + 1).padStart(2, "0")}</strong>
-                      <i />
-                      <i />
-                      <i />
-                      <small>DOCUMENT</small>
-                    </div>
+                    <div className="certification-empty" aria-hidden="true" />
                   )}
                   {certification.pdf && (
                     <span className="certification-pdf">PDF 보기 ↗</span>

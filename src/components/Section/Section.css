@@ -490,7 +490,7 @@
 .section-container {
   background: #ffffff;
 }
-.section-container:nth-child(2n) {
+:nth-child(2n of .section-container) {
   background: #f6f6f6;
 }
 .section-container:last-child {

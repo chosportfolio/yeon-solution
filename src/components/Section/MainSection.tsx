@@ -217,6 +217,48 @@ export default function MainSection() {
         </div>
       </section>
 
+      <section className="video-section section-container" aria-labelledby="video-title">
+        <div className="video-inner">
+          <div className="video-heading">
+            <h2 id="video-title">LG전자 B2B의 다양한 제품 영상을 만나보세요</h2>
+            <a
+              href="https://www.lge.co.kr/kr/business/contents/video/video-list.do"
+              target="_blank"
+              rel="noreferrer"
+            >
+              더보기 <span aria-hidden="true">›</span>
+            </a>
+          </div>
+
+          <div className="video-list">
+            {productVideos.map((video) => (
+              <article className="video-card" key={video.title}>
+                <a
+                  className="video-thumbnail"
+                  href={video.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${video.title} 영상 새 창에서 보기`}
+                >
+                  {video.image ? (
+                    <img src={video.image} alt="" loading="lazy" />
+                  ) : (
+                    <span className="video-image-placeholder" aria-hidden="true" />
+                  )}
+                  <span className="video-play" aria-hidden="true">
+                    <svg viewBox="0 0 48 48">
+                      <circle cx="24" cy="24"   r="21" />
+                      <path d="m20 16 13 8-13 8z" />
+                    </svg>
+                  </span>
+                </a>
+                <strong>{video.title}</strong>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="project-showcase section-container">
         <div className="project-showcase-heading">
           <div>
@@ -321,48 +363,6 @@ export default function MainSection() {
             </div>
           </div>
         )}
-      </section>
-
-      <section className="video-section section-container" aria-labelledby="video-title">
-        <div className="video-inner">
-          <div className="video-heading">
-            <h2 id="video-title">LG전자 B2B의 다양한 제품 영상을 만나보세요</h2>
-            <a
-              href="https://www.lge.co.kr/kr/business/contents/video/video-list.do"
-              target="_blank"
-              rel="noreferrer"
-            >
-              더보기 <span aria-hidden="true">›</span>
-            </a>
-          </div>
-
-          <div className="video-list">
-            {productVideos.map((video) => (
-              <article className="video-card" key={video.title}>
-                <a
-                  className="video-thumbnail"
-                  href={video.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${video.title} 영상 새 창에서 보기`}
-                >
-                  {video.image ? (
-                    <img src={video.image} alt="" loading="lazy" />
-                  ) : (
-                    <span className="video-image-placeholder" aria-hidden="true" />
-                  )}
-                  <span className="video-play" aria-hidden="true">
-                    <svg viewBox="0 0 48 48">
-                      <circle cx="24" cy="24" r="21" />
-                      <path d="m20 16 13 8-13 8z" />
-                    </svg>
-                  </span>
-                </a>
-                <strong>{video.title}</strong>
-              </article>
-            ))}
-          </div>
-        </div>
       </section>
 
       <section className="certification-section section-container" id="certification">

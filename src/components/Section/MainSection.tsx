@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import BusinessOverview from "./BusinessOverview";
 import { A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper";
 import "swiper/css";
-import mainVisual from "../../assets/이미지슬라이드.jpg";
+import MainHero from "./MainHero";
 import hongdae from "../../assets/construction location/홍대입구역.jpg";
 import seocheonSchool from "../../assets/construction location/용인 서천초등학교.jpeg";
 import saebitSchool from "../../assets/construction location/용신 새빛초등학교.png";
@@ -20,11 +20,11 @@ import img_video_15 from "../../assets/img_video_15.jpg";
 
 const projects = [
   { name: "서울역", image: seoulStation, category: "냉난방기" },
-  { name: "용산역", image: yongsanStation, category: "냉난방기" },
-  { name: "홍대입구역", image: hongdae, category: "냉난방기" },
+  { name: "용산역", image: yongsanStation, category: "칠러" },
+  { name: "홍대입구역", image: hongdae, category: "온수시스템" },
   { name: "용인 서천초등학교", image: seocheonSchool, category: "냉난방기" },
   { name: "용신 새빛초등학교", image: saebitSchool, category: "냉난방기" },
-  { name: "동원오츠카 청주", image: dongA, category: "냉난방기" },
+  { name: "동원오츠카 청주", image: dongA, category: "칠러" },
 ];
 
 const categories = ["전체", "냉난방기", "칠러", "온수시스템"];
@@ -47,55 +47,6 @@ const productVideos = [
     href: "https://www.youtube.com/embed/_BBXmipD1kI?rel=0",
   },
 ];
-
-const businessAreas = [
-  {
-    name: "중앙공조 시스템",
-    path: "/business/hvac",
-    icon: "hvac",
-    description: "대규모 공간에 최적화된 고효율 중앙공조 솔루션",
-    products: ["흡수식 냉온수기", "터보·스크류 냉동기", "인버터 스크롤 칠러", "AHU·공조장비"],
-  },
-  {
-    name: "시스템에어컨",
-    path: "/business/air-conditioner",
-    icon: "air",
-    description: "상업·주거 공간에 맞춘 쾌적한 냉난방 시스템",
-    products: ["GHP", "EHP", "주거용 시스템에어컨", "DOAS·ERV"],
-  },
-  {
-    name: "B2B 가전",
-    path: "/business/builtin",
-    icon: "appliance",
-    description: "사업 환경과 용도에 맞는 LG전자 기업용 가전",
-    products: ["냉장·냉동고", "주방가전", "세탁·건조기", "TV·생활가전"],
-  },
-];
-
-function QuickIcon({ type }: { type: string }) {
-  if (type === "air") {
-    return (
-      <svg viewBox="0 0 48 48" aria-hidden="true">
-        <path d="M24 9v30M11 16.5l26 15M11 31.5l26-15M19 12l5 5 5-5M19 36l5-5 5 5M12 22l7 2-2 7M36 26l-7-2 2-7" />
-      </svg>
-    );
-  }
-
-  if (type === "appliance") {
-    return (
-      <svg viewBox="0 0 48 48" aria-hidden="true">
-        <rect x="14" y="7" width="20" height="34" rx="2" />
-        <path d="M14 22h20M29 13v4M29 27v6" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg viewBox="0 0 48 48" aria-hidden="true">
-      <path d="M9 39V16h30v23M15 16V9h18v7M15 24h6v6h-6zM27 24h6v6h-6zM20 39v-5h8v5" />
-    </svg>
-  );
-}
 
 type Certification = {
   title: string;
@@ -159,63 +110,9 @@ export default function MainSection() {
 
   return (
     <>
-      <section className="main-visual">
-        <img src={mainVisual} alt="천장형 시스템에어컨이 설치된 공간" />
-        <div className="main-visual-overlay" />
+      <MainHero />
 
-        <div className="main-visual-content">
-          <p>LG전자 시스템에어컨 전문점</p>
-          <h1>
-            공간을 이해하는
-            <br />쾌적한 공조 솔루션
-          </h1>
-          <span>설계부터 시공, 유지보수까지 연솔루션이 함께합니다.</span>
-        </div>
-      </section>
-
-      <section className="business-section section-container">
-        <div className="business-inner">
-          <div className="business-heading">
-            <p>BUSINESS AREA</p>
-            <h2>사업 분야</h2>
-            <span>
-              공간과 환경에 맞는 LG전자 B2B 제품을 전문적으로 제안합니다.
-            </span>
-          </div>
-
-          <div className="business-list">
-            {businessAreas.map((business, index) => (
-              <Link
-                to={business.path}
-                className="business-card"
-                key={business.name}
-              >
-                <div className="business-card-top">
-                  <span className="business-icon">
-                    <QuickIcon type={business.icon} />
-                  </span>
-                  <span className="business-number">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                <h3>{business.name}</h3>
-                <p>{business.description}</p>
-
-                <ul>
-                  {business.products.map((product) => (
-                    <li key={product}>{product}</li>
-                  ))}
-                </ul>
-
-                <span className="business-more">
-                  자세히 보기 <b aria-hidden="true">↗</b>
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BusinessOverview />
 
       <section className="video-section section-container" aria-labelledby="video-title">
         <div className="video-inner">

@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 
 type MenuLink = {
@@ -251,6 +250,8 @@ const menus: Menu[] = [
 ];
 
 export default function Header() {
+  const { pathname } = useLocation();
+  const [isAtTop, setIsAtTop] = useState(() => window.scrollY <= 0);
   const [activeMenu, setActiveMenu] = useState<number | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -262,13 +263,37 @@ export default function Header() {
   const isMegaMenuOpen =
     activeMenu !== null && Boolean(menus[activeMenu].groups?.length);
 
+  useEffect(() => {
+    const updateHeader = () => {
+      setIsAtTop(window.scrollY <= 0);
+    };
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", updateHeader);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMobileMenuOpen(false);
+    };
+    window.addEventListener("keydown", onEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onEscape);
+    };
+  }, [isMobileMenuOpen]);
+
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
 
   return (
     <header
-      className={`header${isMobileMenuOpen ? " is-mobile-menu-open" : ""}`}
+      className={`header${pathname === "/" && isAtTop && !isMobileMenuOpen && !isSubMenuOpen ? " header--transparent" : ""}${isMobileMenuOpen ? " is-mobile-menu-open" : ""}`}
       onMouseLeave={() => setActiveMenu(null)}
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) {
@@ -277,9 +302,16 @@ export default function Header() {
       }}
     >
       <div className="header-inner">
-        <Link to="/" className="logo">
-          <img src={logo} alt="" />
-          연솔루션
+        <Link to="/" className="logo" onClick={closeMobileMenu} aria-label="연솔루션 홈">
+          <span className="header-wordmark">
+            <strong>연솔루션</strong>
+            <small aria-label="YEON SOLUTION">
+              {Array.from("YEON SOLUTION").map((character, index) => (
+                <span key={index} aria-hidden="true">{character === " " ? "\u00a0" : character}</span>
+              ))}
+            </small>
+          </span>
+          <span className="header-partner"><strong>LG전자</strong><small>시스템에어컨 전문점</small></span>
         </Link>
 
         <div

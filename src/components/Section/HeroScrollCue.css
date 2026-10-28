@@ -1,0 +1,32 @@
+.home-hero-scroll {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+.home-hero-scroll > span { color: rgb(255 255 255 / 85%); font-size: 10px; letter-spacing: 2px; }
+.home-hero-scroll > span:nth-child(2) {
+  font-size: 22px;
+  font-weight: 300;
+  animation: hero-scroll-hint 2.4s ease-in-out infinite;
+}
+@keyframes hero-scroll-hint {
+  0%, 100% { transform: translateY(0); opacity: .65; }
+  50% { transform: translateY(7px); opacity: 1; }
+}
+.home-hero-scroll:hover > span:nth-child(2),
+.home-hero-scroll:focus-visible > span:nth-child(2) {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-scroll > span:nth-child(2) { animation: none; }
+}
+@media (max-width: 900px) {
+  .home-hero-scroll { bottom: 26px; padding: 8px 0; }
+}

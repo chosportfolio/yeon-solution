@@ -313,7 +313,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .header {
     overflow: visible;
     background: #ffffff;
@@ -544,3 +544,48 @@
     font-size: 20px;
   }
 }
+
+
+/* Corporate header: transparent at the top of the home page, solid on scroll. */
+.header { background: #fff; border-bottom-color: #eee; transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.header-inner { max-width: 1600px; grid-template-columns: 290px minmax(0, 1fr) 100px; column-gap: 24px; padding-inline: 48px; }
+.header .logo { width: auto; gap: 22px; letter-spacing: 0; }
+.header-wordmark { display: flex; flex-direction: column; gap: 3px; }
+.header-wordmark strong { color: #222; font-size: 25px; letter-spacing: -1.2px; line-height: 1.2; font-weight: 750; }
+.header-wordmark small { width: 0; min-width: 100%; display: flex; justify-content: space-between; color: #666; font-size: 8px; font-weight: 500; letter-spacing: 0; white-space: nowrap; }
+.header-wordmark small span { color: inherit; }
+.header-partner { border-left: 1px solid #ddd; padding-left: 22px; display: flex; flex-direction: column; gap: 4px; }
+.header-partner strong { color: #a50034; font-size: 18px; font-weight: 700; letter-spacing: 0; text-align-last: justify; }
+.header-partner small { color: #777; font-size: 10px; font-weight: 400; letter-spacing: 0; white-space: nowrap; }
+.header .gnb { gap: clamp(24px, 2.4vw, 44px); }
+.header .gnb-item > a { font-size: 15px; font-weight: 500; }
+.header .contact { width: auto; font-size: 13px; gap: 8px; }
+.header .contact::after { content: '\2197'; font-size: 16px; color: inherit; }
+.header.header--transparent { background: transparent; border-bottom-color: transparent; box-shadow: none; }
+.header--transparent .header-wordmark strong, .header--transparent .header-wordmark small,
+.header--transparent .header-partner strong, .header--transparent .header-partner small,
+.header--transparent .gnb-item > a, .header--transparent .contact { color: #fff; }
+.header--transparent .header-partner { border-left-color: rgb(255 255 255 / 35%); }
+.header--transparent .menu-toggle span { background: #fff; }
+.header--transparent .gnb-item > a::after { background: #fff; }
+.header :focus-visible { outline: 2px solid #a50034; outline-offset: -4px; }
+.header--transparent :focus-visible { outline-color: #fff; }
+@media (max-width: 1100px) {
+  .header-inner { grid-template-columns: minmax(0, 1fr) 44px; padding-inline: 24px; gap: 0; }
+  .header .logo { gap: 18px; }
+  .header-wordmark strong { font-size: 22px; }
+  .header-partner { padding-left: 18px; }
+  .header .gnb { display: block; }
+  .header .gnb-item > a { font-size: 17px; }
+  .header.is-mobile-menu-open { background: #fff; }
+}
+@media (max-width: 480px) {
+  .header-inner { padding-inline: 16px; }
+  .header .logo { gap: 12px; }
+  .header-wordmark strong { font-size: 20px; }
+  .header-wordmark small { font-size: 7px; }
+  .header-partner { padding-left: 12px; }
+  .header-partner strong { font-size: 15px; }
+  .header-partner small { font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) { .header { transition: none; } }

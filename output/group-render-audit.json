@@ -1,0 +1,462 @@
+[
+  {
+    "id": "hvac/absorption",
+    "mode": "mobile",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "hvac/turbo",
+    "mode": "mobile",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "hvac/screw",
+    "mode": "mobile",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "hvac/inverter-scroll",
+    "mode": "mobile",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "hvac/fan-coil",
+    "mode": "mobile",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "hvac/cooling-tower",
+    "mode": "mobile",
+    "expected": 0,
+    "broken": [],
+    "cards": 0,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "hvac/temperature-humidity",
+    "mode": "mobile",
+    "expected": 0,
+    "broken": [],
+    "cards": 0,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "hvac/ahu",
+    "mode": "mobile",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "air-conditioner/ghp",
+    "mode": "mobile",
+    "expected": 2,
+    "broken": [],
+    "cards": 2,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "air-conditioner/ehp",
+    "mode": "mobile",
+    "expected": 21,
+    "broken": [],
+    "cards": 21,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "air-conditioner/residential",
+    "mode": "mobile",
+    "expected": 8,
+    "broken": [],
+    "cards": 8,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "air-conditioner/doas",
+    "mode": "mobile",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "air-conditioner/boiler",
+    "mode": "mobile",
+    "expected": 2,
+    "broken": [],
+    "cards": 2,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "air-conditioner/erv",
+    "mode": "mobile",
+    "expected": 23,
+    "broken": [],
+    "cards": 23,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "appliance/refrigerator",
+    "mode": "mobile",
+    "expected": 18,
+    "broken": [],
+    "cards": 18,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "appliance/freezer",
+    "mode": "mobile",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "appliance/dishwasher",
+    "mode": "mobile",
+    "expected": 2,
+    "broken": [],
+    "cards": 2,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "appliance/induction",
+    "mode": "mobile",
+    "expected": 3,
+    "broken": [],
+    "cards": 3,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "appliance/washer",
+    "mode": "mobile",
+    "expected": 19,
+    "broken": [],
+    "cards": 19,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "appliance/dryer",
+    "mode": "mobile",
+    "expected": 8,
+    "broken": [],
+    "cards": 8,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "appliance/oven",
+    "mode": "mobile",
+    "expected": 15,
+    "broken": [],
+    "cards": 15,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "appliance/tv",
+    "mode": "mobile",
+    "expected": 32,
+    "broken": [],
+    "cards": 32,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "appliance/vacuum",
+    "mode": "mobile",
+    "expected": 29,
+    "broken": [],
+    "cards": 29,
+    "emptyBody": false,
+    "pageWidth": 345,
+    "width": 345
+  },
+  {
+    "id": "hvac/absorption",
+    "mode": "desktop",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "hvac/turbo",
+    "mode": "desktop",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "hvac/screw",
+    "mode": "desktop",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "hvac/inverter-scroll",
+    "mode": "desktop",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "hvac/fan-coil",
+    "mode": "desktop",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "hvac/cooling-tower",
+    "mode": "desktop",
+    "expected": 0,
+    "broken": [],
+    "cards": 0,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "hvac/temperature-humidity",
+    "mode": "desktop",
+    "expected": 0,
+    "broken": [],
+    "cards": 0,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "hvac/ahu",
+    "mode": "desktop",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "air-conditioner/ghp",
+    "mode": "desktop",
+    "expected": 2,
+    "broken": [],
+    "cards": 2,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "air-conditioner/ehp",
+    "mode": "desktop",
+    "expected": 21,
+    "broken": [],
+    "cards": 21,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "air-conditioner/residential",
+    "mode": "desktop",
+    "expected": 8,
+    "broken": [],
+    "cards": 8,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "air-conditioner/doas",
+    "mode": "desktop",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "air-conditioner/boiler",
+    "mode": "desktop",
+    "expected": 2,
+    "broken": [],
+    "cards": 2,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "air-conditioner/erv",
+    "mode": "desktop",
+    "expected": 23,
+    "broken": [],
+    "cards": 23,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "appliance/refrigerator",
+    "mode": "desktop",
+    "expected": 18,
+    "broken": [],
+    "cards": 18,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "appliance/freezer",
+    "mode": "desktop",
+    "expected": 1,
+    "broken": [],
+    "cards": 1,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "appliance/dishwasher",
+    "mode": "desktop",
+    "expected": 2,
+    "broken": [],
+    "cards": 2,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "appliance/induction",
+    "mode": "desktop",
+    "expected": 3,
+    "broken": [],
+    "cards": 3,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "appliance/washer",
+    "mode": "desktop",
+    "expected": 19,
+    "broken": [],
+    "cards": 19,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "appliance/dryer",
+    "mode": "desktop",
+    "expected": 8,
+    "broken": [],
+    "cards": 8,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "appliance/oven",
+    "mode": "desktop",
+    "expected": 15,
+    "broken": [],
+    "cards": 15,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "appliance/tv",
+    "mode": "desktop",
+    "expected": 32,
+    "broken": [],
+    "cards": 32,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  },
+  {
+    "id": "appliance/vacuum",
+    "mode": "desktop",
+    "expected": 29,
+    "broken": [],
+    "cards": 29,
+    "emptyBody": false,
+    "pageWidth": 1281,
+    "width": 1281
+  }
+]

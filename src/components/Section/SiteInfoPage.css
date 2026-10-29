@@ -1,0 +1,59 @@
+.site-info-page { max-width: 1280px; min-height: 65vh; margin: 0 auto; padding: 0 48px 96px; }
+.site-info-page > nav { display: flex; gap: 12px; padding: 24px 0; font-size: 12px; }
+.site-info-page > nav a, .site-info-page > nav span { color: #888; }
+.site-info-page > nav strong { color: #555; font-weight: 500; }
+.site-info-page > header { padding: 48px 0 28px; }
+.site-info-page > header p { color: #a50034; font-size: 11px; letter-spacing: 1.5px; margin-bottom: 16px; }
+.site-info-page h1 { color: #222; font-size: 40px; font-weight: 600; letter-spacing: -1px; }
+.site-info-description { color: #777; font-size: 15px; line-height: 1.8; }
+.site-contact-options { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 48px; }
+.site-contact-options a { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 36px 32px; background: #f7f7f7; }
+.site-contact-options span { color: #777; font-size: 13px; }
+.site-contact-options strong { color: #222; font-size: 27px; font-weight: 500; overflow-wrap: anywhere; }
+.site-contact-options b { position: absolute; right: 28px; top: 28px; color: #a50034; font-size: 22px; font-weight: 400; }
+.site-contact-options a:hover { background: #f1f1f1; }
+.site-contact-hours { display: grid; grid-template-columns: 180px 1fr auto; align-items: center; gap: 24px; padding: 32px 0; margin-top: 36px; border-top: 1px solid #e5e5e5; }
+.site-contact-hours h2 { color: #333; font-size: 18px; font-weight: 500; }
+.site-contact-hours p { color: #777; font-size: 14px; line-height: 1.9; }
+.site-contact-hours a, .site-contact-hours a span { color: #a50034; font-size: 13px; }
+.site-info-notice { margin-top: 20px; padding: 48px 36px; background: #f7f7f7; }
+.site-info-notice h2 { color: #444; font-size: 22px; font-weight: 500; line-height: 1.6; }
+.site-info-notice p { margin-top: 16px; color: #777; font-size: 14px; line-height: 1.8; }
+.site-info-notice > div { display: flex; gap: 12px; margin-top: 32px; }
+.site-info-notice a { padding: 12px 20px; border: 1px solid #ddd; background: #fff; color: #555; font-size: 13px; }
+.site-info-page :focus-visible { outline: 2px solid #a50034; outline-offset: 4px; }
+.project-showcase-heading h1 { color: #111; font-size: 46px; line-height: 1.15; letter-spacing: -2.4px; }
+.project-list-count { margin-bottom: 24px; color: #777; font-size: 14px; }
+.project-list-count strong { color: #a50034; font-weight: 600; }
+.project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px 24px; }
+.project-list-image { aspect-ratio: 4 / 3; overflow: hidden; background: #eee; }
+.project-list-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.project-pagination { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 56px; }
+.project-pagination a, .project-pagination > span { display: flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding-inline: 10px; border: 1px solid #e5e5e5; color: #555; font-size: 14px; }
+.project-pagination a:hover { background: #fcf6f8; color: #a50034; }
+.project-pagination a[aria-current="page"] { border-color: #a50034; background: #a50034; color: #fff; }
+.project-pagination a:focus-visible { outline: 2px solid #a50034; outline-offset: 3px; }
+.project-pagination .project-page-step { font-size: 24px; }
+.project-pagination [aria-disabled="true"] { color: #ccc; }
+@media (max-width: 1000px) {
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .site-info-page { padding: 0 24px 64px; }
+  .site-info-page > header { padding-top: 28px; }
+  .site-info-page h1 { font-size: 30px; }
+  .site-info-description { font-size: 13px; }
+  .site-contact-options { grid-template-columns: 1fr; gap: 16px; margin-top: 32px; }
+  .site-contact-options a { padding: 28px 24px; }
+  .site-contact-options strong { font-size: 23px; }
+  .site-contact-hours { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  .site-contact-hours p { font-size: 13px; }
+  .site-info-notice { padding: 32px 24px; }
+  .site-info-notice h2 { font-size: 20px; }
+  .site-info-notice > div { flex-wrap: wrap; }
+  .project-showcase-heading h1 { font-size: 34px; }
+}
+@media (max-width: 480px) {
+  .project-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .project-pagination { gap: 6px; margin-top: 40px; }
+}

@@ -1,0 +1,70 @@
+.business-category { max-width: 1280px; margin: 0 auto; padding: 0 48px 112px; }
+.business-category-breadcrumb { display: flex; align-items: center; gap: 12px; padding: 24px 0; font-size: 12px; }
+.business-category-breadcrumb a, .business-category-breadcrumb span { color: #888; }
+.business-category-breadcrumb strong { color: #555; font-weight: 500; }
+.business-category-intro { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding: 32px 0 72px; }
+.business-category-intro > div > p { margin-bottom: 16px; color: #a50034; font-size: 12px; font-weight: 700; letter-spacing: 2px; }
+.business-category-intro h1 { margin-bottom: 24px; color: #222; font-size: 44px; font-weight: 650; letter-spacing: -1.5px; }
+.business-category-intro > div > span { color: #777; font-size: 16px; line-height: 1.8; }
+.business-category-intro img { display: block; width: 100%; height: 260px; object-fit: cover; }
+.business-category-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+.business-category-heading h2 { color: #222; font-size: 26px; font-weight: 600; letter-spacing: -.7px; }
+.business-category-heading p { color: #777; font-size: 13px; line-height: 1.7; }
+.business-category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 28px; }
+.business-category-product { display: block; min-width: 0; scroll-margin-top: 112px; }
+.business-category-product-image { display: grid; place-items: center; aspect-ratio: 1.6; overflow: hidden; background: #f7f7f7; transition: background .25s ease; }
+.business-category-product-image img { display: block; width: 76%; height: 76%; object-fit: contain; mix-blend-mode: multiply; transition: transform .3s ease; }
+.business-category-product-copy { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; padding: 20px 2px 0; }
+.business-category-product-copy h3 { color: #222; font-size: 18px; font-weight: 550; letter-spacing: -.4px; line-height: 1.5; }
+.business-category-product-copy p { margin-top: 5px; color: #777; font-size: 12px; line-height: 1.5; }
+.business-category-product-copy svg { flex: 0 0 24px; width: 24px; height: 24px; stroke: #777; stroke-width: 1.25; transition: transform .25s ease, stroke .25s ease; }
+.business-category-product:hover .business-category-product-image, .business-category-product:focus-visible .business-category-product-image { background: #f1f1f1; }
+.business-category-product:hover img, .business-category-product:focus-visible img { transform: scale(1.04); }
+.business-category-product:hover svg, .business-category-product:focus-visible svg { stroke: #a50034; transform: translateX(4px); }
+.business-category-product.is-selected .business-category-product-image { box-shadow: inset 0 -2px #a50034; }
+.business-category-consultation { display: grid; grid-template-columns: 1fr 2fr; align-items: center; gap: 40px; margin-top: 64px; padding: 32px 0; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
+.business-category-consultation > div > h2 { color: #333; font-size: 18px; font-weight: 550; }
+.business-category-consultation > div > p { margin-top: 10px; color: #777; font-size: 13px; line-height: 1.7; }
+.business-category-consultation-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.business-category-consultation-links a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 28px; border-left: 1px solid #e5e5e5; scroll-margin-top: 112px; }
+.business-category-consultation-links h3 { color: #333; font-size: 17px; font-weight: 500; }
+.business-category-consultation-links span { display: flex; align-items: center; gap: 14px; color: #777; font-size: 12px; white-space: nowrap; }
+.business-category-consultation-links b { color: inherit; font-size: 20px; font-weight: 400; }
+.business-category-consultation-links a:hover h3, .business-category-consultation-links a:hover span, .business-category-consultation-links a.is-selected h3 { color: #a50034; }
+.business-category :focus-visible { outline: 2px solid #a50034; outline-offset: 4px; }
+@media (max-width: 1000px) {
+  .business-category { padding-inline: 32px; }
+  .business-category-grid { gap: 32px 20px; }
+  .business-category-consultation { grid-template-columns: 1fr; gap: 24px; }
+  .business-category-consultation-links a { padding-left: 0; border-left: 0; }
+  .business-category-consultation-links a + a { padding-left: 28px; border-left: 1px solid #e5e5e5; }
+}
+@media (max-width: 760px) {
+  .business-category { padding: 0 24px 72px; }
+  .business-category-intro { grid-template-columns: 1fr; gap: 32px; padding: 24px 0 48px; }
+  .business-category-intro h1 { font-size: 32px; margin-bottom: 16px; }
+  .business-category-intro > div > span { font-size: 14px; }
+  .business-category-intro img { height: 200px; }
+  .business-category-heading { display: block; margin-bottom: 24px; }
+  .business-category-heading h2 { font-size: 23px; }
+  .business-category-heading p { margin-top: 10px; font-size: 12px; }
+  .business-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
+  .business-category-product-image { aspect-ratio: 1.15; }
+  .business-category-product-image img { width: 84%; height: 80%; }
+  .business-category-product-copy { min-height: 56px; align-items: flex-start; gap: 8px; padding-top: 14px; }
+  .business-category-product-copy h3 { font-size: 16px; overflow-wrap: anywhere; }
+  .business-category-product-copy p { font-size: 11px; }
+  .business-category-product-copy svg { flex-basis: 18px; width: 18px; height: 22px; }
+  .business-category-consultation { margin-top: 40px; padding: 28px 0; }
+  .business-category-consultation-links { grid-template-columns: 1fr; }
+  .business-category-consultation-links a, .business-category-consultation-links a + a { min-height: 64px; padding: 16px 0; border-left: 0; }
+  .business-category-consultation-links a + a { border-top: 1px solid #eee; }
+}
+@media (max-width: 380px) {
+  .business-category { padding-inline: 16px; }
+  .business-category-grid { column-gap: 12px; }
+  .business-category-product-copy h3 { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .business-category-product-image, .business-category-product-image img, .business-category-product-copy svg { transition: none; }
+}

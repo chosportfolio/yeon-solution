@@ -311,6 +311,59 @@
   color: #a50034;
 }
 
+.project-tabs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin-bottom: 40px;
+  border-top: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5;
+}
+
+.project-tabs a,
+.project-tabs button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 64px;
+  padding: 16px 12px;
+  border: 0;
+  border-right: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  border-radius: 0;
+  background: #fff;
+  color: #555;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+  transition: color .2s, background-color .2s;
+}
+
+.project-tabs a:hover,
+.project-tabs button:hover {
+  background: #fcf6f8;
+  color: #a50034;
+}
+
+.project-tabs a[aria-current="page"],
+.project-tabs button[aria-pressed="true"] {
+  background: #a50034;
+  color: #fff;
+}
+
+.project-tabs :focus-visible {
+  outline: 2px solid #a50034;
+  outline-offset: -5px;
+}
+
+.project-tabs [aria-current="page"]:focus-visible,
+.project-tabs [aria-pressed="true"]:focus-visible {
+  outline-color: #fff;
+}
+
 .project-slider {
   width: 100%;
   overflow: hidden;
@@ -490,9 +543,6 @@
 .section-container {
   background: #ffffff;
 }
-:nth-child(2n of .section-container) {
-  background: #f6f6f6;
-}
 .section-container:last-child {
   border-bottom: 1px solid #e8e8e8;
 }
@@ -500,6 +550,7 @@
 .video-section {
   width: 100%;
   padding: 76px 0 84px;
+  background: #f6f6f6;
   font-family: inherit;
 }
 
@@ -1036,6 +1087,11 @@
     font-size: 34px;
   }
 
+  .project-filters {
+    margin-right: -16px;
+    padding-right: 16px;
+  }
+
   .project-card-text {
     padding-top: 16px;
   }
@@ -1094,7 +1150,14 @@
   }
 }
 
+@media (max-width: 760px) {
+  .project-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 28px; }
+  .project-tabs a, .project-tabs button { min-height: 58px; padding: 12px 8px; font-size: 13px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .project-tabs a,
+  .project-tabs button,
   .project-image img,
   .project-image::before,
   .project-image::after,
@@ -1104,3 +1167,4 @@
     transition: none;
   }
 }
+.section-loading { min-height: 60vh; display: grid; place-items: center; color: #888; font-size: 14px; }

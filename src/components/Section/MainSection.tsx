@@ -1,33 +1,18 @@
 import { useRef, useState } from "react";
+import { projects } from "../../data/projects";
+import { projectCategories } from "../../data/projectCategories";
 import BusinessOverview from "./BusinessOverview";
 import { A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper";
 import "swiper/css";
 import MainHero from "./MainHero";
-import hongdae from "../../assets/construction location/홍대입구역.jpg";
-import seocheonSchool from "../../assets/construction location/용인 서천초등학교.jpeg";
-import saebitSchool from "../../assets/construction location/용신 새빛초등학교.png";
-import yongsanStation from "../../assets/construction location/용산역.jpg";
-import seoulStation from "../../assets/construction location/서울역.jpg";
-import dongA from "../../assets/construction location/동원오츠카 청주.png";
 import mechanicalCertificate from "../../assets/기계설비.png";
 import businessLicense from "../../assets/사업자등록증.png";
 import constructionLicense from "../../assets/연솔루션 건설업 등록증.png";
 import img_video_13 from "../../assets/img_video_13.jpg";
 import img_video_14 from "../../assets/img_video_14.jpg";
 import img_video_15 from "../../assets/img_video_15.jpg"; 
-
-const projects = [
-  { name: "서울역", image: seoulStation, category: "냉난방기" },
-  { name: "용산역", image: yongsanStation, category: "칠러" },
-  { name: "홍대입구역", image: hongdae, category: "온수시스템" },
-  { name: "용인 서천초등학교", image: seocheonSchool, category: "냉난방기" },
-  { name: "용신 새빛초등학교", image: saebitSchool, category: "냉난방기" },
-  { name: "동원오츠카 청주", image: dongA, category: "칠러" },
-];
-
-const categories = ["전체", "냉난방기", "칠러", "온수시스템"];
 
 const productVideos = [
   {
@@ -156,7 +141,7 @@ export default function MainSection() {
         </div>
       </section>
 
-      <section className="project-showcase section-container">
+      <section className="project-showcase section-container" id="projects">
         <div className="project-showcase-heading">
           <div>
             <p>OUR PROJECTS</p>
@@ -164,16 +149,16 @@ export default function MainSection() {
           </div>
         </div>
 
-        <div className="project-filters" aria-label="시공사례 분류">
-          {categories.map((category) => (
+        <div className="project-filters" role="group" aria-label="시공사례 분류">
+          {projectCategories.map((category) => (
             <button
               type="button"
-              key={category}
-              className={activeCategory === category ? "is-active" : ""}
-              aria-pressed={activeCategory === category}
-              onClick={() => changeCategory(category)}
+              key={category.slug}
+              className={activeCategory === category.category ? "is-active" : ""}
+              aria-pressed={activeCategory === category.category}
+              onClick={() => changeCategory(category.category)}
             >
-              {category}
+              {category.name}
             </button>
           ))}
         </div>

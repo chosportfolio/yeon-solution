@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-29",
+  "desktopProducts": 190,
+  "mobileProducts": 190,
+  "productGroups": 23,
+  "checkedImageFiles": 2850,
+  "invalidImageFiles": 0,
+  "sourceSpecificationValues": 6375,
+  "sourceLineupCells": 2665,
+  "fixes": [
+    "Responsive gallery images within the mobile viewport",
+    "Responsive embedded lineup diagrams including GHP",
+    "Restored missing source geometry for absorption-chiller capacity graphs",
+    "Removed 8px mobile project-filter overflow",
+    "Connected support and existing project routes",
+    "Added explicit pending-policy and missing-page states",
+    "Deduplicated repeated highlights and removed React key errors in 13 models"
+  ],
+  "pendingContent": [
+    "Terms of use",
+    "Email collection policy",
+    "Privacy policy"
+  ],
+  "verifiedInteractions": {
+    "gallery": true,
+    "featureCarousel": true,
+    "tableHorizontalScroll": true
+  },
+  "mainMobileChecks": [
+    {
+      "path": "/",
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/projects",
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/projects/air-conditioner",
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/support",
+      "pageWidth": 383,
+      "width": 383
+    }
+  ],
+  "renderDetails": "page-render-audit.json",
+  "groupDetails": "group-render-audit.json",
+  "duplicateModelsFixed": 13,
+  "postFixConsoleErrors": 0,
+  "pendingGalleryLoadsRechecked": true
+}

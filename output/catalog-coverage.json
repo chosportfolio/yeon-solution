@@ -1,0 +1,148 @@
+{
+  "products": 190,
+  "groups": 23,
+  "specificationModels": 152,
+  "specificationValues": 6375,
+  "lineupCells": 2665,
+  "localImages": 2844,
+  "coverage": [
+    {
+      "category": "hvac",
+      "group": "absorption",
+      "models": 1,
+      "consultation": false
+    },
+    {
+      "category": "hvac",
+      "group": "turbo",
+      "models": 1,
+      "consultation": false
+    },
+    {
+      "category": "hvac",
+      "group": "screw",
+      "models": 1,
+      "consultation": false
+    },
+    {
+      "category": "hvac",
+      "group": "inverter-scroll",
+      "models": 1,
+      "consultation": false
+    },
+    {
+      "category": "hvac",
+      "group": "fan-coil",
+      "models": 1,
+      "consultation": false
+    },
+    {
+      "category": "hvac",
+      "group": "cooling-tower",
+      "models": 0,
+      "consultation": true
+    },
+    {
+      "category": "hvac",
+      "group": "temperature-humidity",
+      "models": 0,
+      "consultation": true
+    },
+    {
+      "category": "hvac",
+      "group": "ahu",
+      "models": 1,
+      "consultation": false
+    },
+    {
+      "category": "air-conditioner",
+      "group": "ghp",
+      "models": 2,
+      "consultation": false
+    },
+    {
+      "category": "air-conditioner",
+      "group": "ehp",
+      "models": 21,
+      "consultation": false
+    },
+    {
+      "category": "air-conditioner",
+      "group": "residential",
+      "models": 8,
+      "consultation": false
+    },
+    {
+      "category": "air-conditioner",
+      "group": "doas",
+      "models": 1,
+      "consultation": false
+    },
+    {
+      "category": "air-conditioner",
+      "group": "boiler",
+      "models": 2,
+      "consultation": false
+    },
+    {
+      "category": "air-conditioner",
+      "group": "erv",
+      "models": 23,
+      "consultation": false
+    },
+    {
+      "category": "appliance",
+      "group": "refrigerator",
+      "models": 18,
+      "consultation": false
+    },
+    {
+      "category": "appliance",
+      "group": "freezer",
+      "models": 1,
+      "consultation": false
+    },
+    {
+      "category": "appliance",
+      "group": "dishwasher",
+      "models": 2,
+      "consultation": false
+    },
+    {
+      "category": "appliance",
+      "group": "induction",
+      "models": 3,
+      "consultation": false
+    },
+    {
+      "category": "appliance",
+      "group": "washer",
+      "models": 19,
+      "consultation": false
+    },
+    {
+      "category": "appliance",
+      "group": "dryer",
+      "models": 8,
+      "consultation": false
+    },
+    {
+      "category": "appliance",
+      "group": "oven",
+      "models": 15,
+      "consultation": false
+    },
+    {
+      "category": "appliance",
+      "group": "tv",
+      "models": 32,
+      "consultation": false
+    },
+    {
+      "category": "appliance",
+      "group": "vacuum",
+      "models": 29,
+      "consultation": false
+    }
+  ]
+}

@@ -24,7 +24,7 @@ const areas = [
     description: "비즈니스 공간의 편리함을 높이는 LG전자 가전",
     image: appliances,
     alt: "냉장고와 빌트인 가전을 갖춘 기업용 주방 공간",
-    path: "/business/builtin",
+    path: "/business/appliance",
   },
 ];
 

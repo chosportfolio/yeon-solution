@@ -1,0 +1,30 @@
+{
+  "generator": "Built-in image_gen",
+  "usage": "Conceptual decorative photography for company-page banners; not photographs of actual Yeon Solution premises or completed projects.",
+  "assets": [
+    {
+      "key": "overview",
+      "source": "C:/Users/ckddu/.codex/generated_images/01a18762-cc4f-7820-8747-a1bf7ac08243/exec-f9b6f983-a356-4eaa-826d-385663608def.png",
+      "output": "src/assets/company/company-overview.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: photographic website banner for the company overview of a Korean HVAC and building systems installer. Create one photorealistic, professionally photographed landscape image, 3:2 aspect ratio, wide enough for a panoramic crop. Scene: a refined contemporary commercial office interior, daylight coming through tall glass windows, subtle linear ceiling air diffusers integrated into a beautifully detailed white ceiling, light stone and brushed metal materials, a few restrained indoor plants. The subject is a comfortable, thoughtfully engineered indoor environment. Show physically believable building services and realistic materials; avoid product advertisement closeups. Composition: a wide architectural photograph with quiet midtones in the central horizontal band where a website will overlay white text; architectural details toward the edges, no people. Palette: cool neutral gray, soft daylight blue, warm pale stone. Calm, credible, understated Korean corporate editorial aesthetic. This is a conceptual atmosphere photograph, not a depiction of a specific company office or completed project. No text, no letters, no logos, no signs, no watermark, no embedded user interface, no collage."
+    },
+    {
+      "key": "ci",
+      "source": "C:/Users/ckddu/.codex/generated_images/01a18762-cc4f-7820-8747-a1bf7ac08243/exec-88047088-93a7-47f3-9ef8-0ccae912e8cd.png",
+      "output": "src/assets/company/company-ci.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: photographic website banner for a corporate identity page of a Korean building systems and HVAC company. Create one landscape architectural material study, 3:2 aspect ratio, suitable for a panoramic 300-pixel-high website crop. Close view of beautifully engineered vertical brushed aluminum fins, dark navy glass reflections, and a single restrained deep burgundy architectural panel. A clean rhythm of precise structural lines and elegant shadow, realistic fine metal grain, crisp edges, subtle natural light. The photograph conveys precision, consistency, and connection. Keep the central horizontal area calm and medium-dark to accommodate white website title text; visual interest should come from real material details, not glowing effects. Sophisticated understated corporate editorial photograph. This is a conceptual decorative image, not an existing building or logo redesign. No text, no letters, no symbols, no logo, no signage, no watermarks, no people, no user interface, no collage. Absolutely no literal or invented YS or LG marks."
+    },
+    {
+      "key": "history",
+      "source": "C:/Users/ckddu/.codex/generated_images/01a18762-cc4f-7820-8747-a1bf7ac08243/exec-109d71c2-3cfc-44f4-a066-357ad2e61991.png",
+      "output": "src/assets/company/company-history.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: banner and supporting portrait-cropped image for the corporate history of a Korean HVAC and mechanical building systems company. Create one landscape photograph, 3:2 aspect ratio, with a composition that also remains strong when the center is cropped vertically. Subject: repeated architectural frames and glass facades of a contemporary commercial building, photographed from a low but realistic eye-level angle along a sheltered exterior walkway. Strong clean perspective leading into the distance, layered horizontal floor lines, restrained planted landscaping, natural golden side light, cool blue-gray glass and light concrete. This should suggest steady progress and enduring construction quality, not an enormous corporate headquarters or futuristic city. Avoid construction cranes, workers, logos, or specific identifiable landmarks. Keep middle band somewhat dark enough for white overlaid website title; leave lower part of the center crop with shaded materials suitable for a small white caption. Premium yet realistic architectural editorial photography, believable real-world proportions and material textures. Conceptual atmosphere image only. No text, no letters, no logos, no signage, no watermark, no embedded UI, no collage."
+    },
+    {
+      "key": "location",
+      "source": "C:/Users/ckddu/.codex/generated_images/01a18762-cc4f-7820-8747-a1bf7ac08243/exec-dc7af232-403e-4b89-96b5-11f2dd2afa9f.png",
+      "output": "src/assets/company/company-location.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: photographic website banner for an office location/contact page of a Korean building systems installer. Create one landscape architectural photograph, 3:2 aspect ratio, suitable for a shallow panoramic website crop. Scene: a welcoming street-level entrance of a modest contemporary Korean commercial office building, double-height glass doors, warm light visible through the glass, clean stone paving, leafy green trees casting natural shadows, refined but approachable urban scale. Camera at pedestrian eye level, wide composition. The imagery should communicate accessibility and a professional welcome. Use understated slate-gray glass, light warm stone, natural greens, gentle late-afternoon daylight; keep the center horizontal band medium-dark with natural glass reflections so white title text can be overlaid by the website. This is a generic conceptual mood photograph, not a representation of the company's real address. No named city or landmark, no people, no text, no lettering, no signs, no logos, no watermark, no user interface, no collage."
+    }
+  ]
+}

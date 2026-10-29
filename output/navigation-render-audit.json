@@ -1,0 +1,315 @@
+{
+  "before": [
+    {
+      "path": "/company/greeting",
+      "broken": [],
+      "emptyMain": false,
+      "pageWidth": 1281,
+      "title": "회사 소개",
+      "width": 1281
+    },
+    {
+      "path": "/company/overview",
+      "broken": [],
+      "emptyMain": false,
+      "pageWidth": 1281,
+      "title": "회사 소개",
+      "width": 1281
+    },
+    {
+      "path": "/company/ci",
+      "broken": [],
+      "emptyMain": false,
+      "pageWidth": 1281,
+      "title": "회사 소개",
+      "width": 1281
+    },
+    {
+      "path": "/company/history",
+      "broken": [],
+      "emptyMain": false,
+      "pageWidth": 1281,
+      "title": "회사 소개",
+      "width": 1281
+    },
+    {
+      "path": "/company/location",
+      "broken": [],
+      "emptyMain": false,
+      "pageWidth": 1281,
+      "title": "회사 소개",
+      "width": 1281
+    },
+    {
+      "path": "/business/hvac",
+      "broken": [],
+      "emptyMain": false,
+      "pageWidth": 1296,
+      "width": 1296
+    },
+    {
+      "path": "/business/air-conditioner",
+      "broken": [],
+      "emptyMain": false,
+      "pageWidth": 1296,
+      "width": 1296
+    },
+    {
+      "path": "/business/appliance",
+      "broken": [],
+      "emptyMain": false,
+      "pageWidth": 1296,
+      "width": 1296
+    },
+    {
+      "path": "/support",
+      "broken": [],
+      "emptyMain": true,
+      "pageWidth": 1296,
+      "width": 1296
+    },
+    {
+      "path": "/projects",
+      "broken": [],
+      "emptyMain": true,
+      "pageWidth": 1296,
+      "width": 1296
+    },
+    {
+      "path": "/terms",
+      "broken": [],
+      "emptyMain": true,
+      "pageWidth": 1296,
+      "width": 1296
+    },
+    {
+      "path": "/email-policy",
+      "broken": [],
+      "emptyMain": true,
+      "pageWidth": 1296,
+      "width": 1296
+    },
+    {
+      "path": "/privacy",
+      "broken": [],
+      "emptyMain": true,
+      "pageWidth": 1296,
+      "width": 1296
+    }
+  ],
+  "after": [
+    {
+      "path": "/support",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 1280,
+      "projects": [],
+      "title": "고객 지원",
+      "width": 1280
+    },
+    {
+      "path": "/projects",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 1296,
+      "projects": [
+        "서울역",
+        "용산역",
+        "홍대입구역",
+        "용인 서천초등학교",
+        "용신 새빛초등학교",
+        "동원오츠카 청주"
+      ],
+      "title": "시공 사례",
+      "width": 1296
+    },
+    {
+      "path": "/projects/air-conditioner",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 1296,
+      "projects": [
+        "서울역",
+        "용인 서천초등학교",
+        "용신 새빛초등학교"
+      ],
+      "title": "시공 사례",
+      "width": 1296
+    },
+    {
+      "path": "/projects/boiler",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 1296,
+      "projects": [
+        "홍대입구역"
+      ],
+      "title": "시공 사례",
+      "width": 1296
+    },
+    {
+      "path": "/projects/hvac",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 1296,
+      "projects": [
+        "용산역",
+        "동원오츠카 청주"
+      ],
+      "title": "시공 사례",
+      "width": 1296
+    },
+    {
+      "path": "/projects/ventilation",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 1296,
+      "projects": [],
+      "title": "시공 사례",
+      "width": 1296
+    },
+    {
+      "path": "/projects/builtin",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 1296,
+      "projects": [],
+      "title": "시공 사례",
+      "width": 1296
+    },
+    {
+      "path": "/terms",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 1280,
+      "projects": [],
+      "title": "이용약관",
+      "width": 1280
+    },
+    {
+      "path": "/email-policy",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 1280,
+      "projects": [],
+      "title": "이메일무단수집거부",
+      "width": 1280
+    },
+    {
+      "path": "/privacy",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 1280,
+      "projects": [],
+      "title": "개인정보처리방침",
+      "width": 1280
+    }
+  ],
+  "mobile": [
+    {
+      "path": "/",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 391,
+      "width": 383
+    },
+    {
+      "path": "/company/greeting",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/company/overview",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/company/ci",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/company/history",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/company/location",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/business/hvac",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/business/air-conditioner",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/business/appliance",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/support",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/projects",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 391,
+      "width": 383
+    },
+    {
+      "path": "/projects/air-conditioner",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 391,
+      "width": 383
+    },
+    {
+      "path": "/terms",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/email-policy",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 383,
+      "width": 383
+    },
+    {
+      "path": "/privacy",
+      "broken": [],
+      "empty": false,
+      "pageWidth": 383,
+      "width": 383
+    }
+  ]
+}

@@ -29,11 +29,13 @@ export default function ProjectGallery({ projects }: { projects: Project[] }) {
     {visibleProjects.length > 0 ? (
       <div className="project-grid">
         {visibleProjects.map((project) => (
-          <article className="project-card" key={project.name}>
+          <article className="project-card" key={project.id}>
+            <Link to={`/projects/view/${project.id}`} aria-label={`${project.name} 시공사례 읽기`}>
             <div className="project-list-image">
               <img src={project.image} alt={`${project.name} 시공 현장`} loading="lazy" />
             </div>
             <div className="project-card-text"><p>{project.category}</p><h3>{project.name}</h3></div>
+            </Link>
           </article>
         ))}
       </div>

@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { businessCategories } from "../../data/business";
 import "./Header.css";
 
 type MenuLink = { name: string; path: string; note?: string };
-type Menu = MenuLink & { subMenu: MenuLink[]; isBusiness?: boolean; description?: string };
+type Menu = MenuLink & { subMenu: MenuLink[]; isBusiness?: boolean; description?: string; subMenuAlign?: "start" | "end" };
 
 const menus: Menu[] = [
   {
@@ -32,13 +32,22 @@ const menus: Menu[] = [
     name: "시공 사례", path: "/projects",
     subMenu: [],
   },
-  { name: "고객 지원", path: "/support", subMenu: [] },
+  {
+    name: "고객 지원", path: "/support",
+    subMenuAlign: "end",
+    subMenu: [
+      { name: "견적 문의", path: "/support/estimate" },
+      { name: "자주 묻는 질문", path: "/support/faq" },
+    ],
+  },
 ];
 
 export default function Header() {
   const { pathname } = useLocation();
   const [isAtTop, setIsAtTop] = useState(() => window.scrollY <= 0);
   const [activeMenu, setActiveMenu] = useState<number | null>(null);
+  const menuTriggerRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const subMenuLinksRef = useRef<HTMLDivElement>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const selectedMenu = activeMenu === null ? undefined : menus[activeMenu];
   const isSubMenuOpen = Boolean(selectedMenu?.subMenu.length);
@@ -60,6 +69,31 @@ export default function Header() {
     window.addEventListener("keydown", onEscape);
     return () => window.removeEventListener("keydown", onEscape);
   }, []);
+
+  useLayoutEffect(() => {
+    const links = subMenuLinksRef.current;
+    if (!links || activeMenu === null || menus[activeMenu].isBusiness) return;
+    const trigger = menuTriggerRefs.current[activeMenu];
+    const anchor = menus[activeMenu].subMenuAlign === "end" ? links.lastElementChild : links.firstElementChild;
+    if (!trigger || !anchor) return;
+    const alignSubMenu = () => {
+      links.style.transform = "";
+      const triggerBounds = trigger.getBoundingClientRect();
+      const anchorBounds = anchor.getBoundingClientRect();
+      const offset = triggerBounds.left + triggerBounds.width / 2 - anchorBounds.left - anchorBounds.width / 2;
+      links.style.transform = `translateX(${offset}px)`;
+    };
+    alignSubMenu();
+    const observer = new ResizeObserver(alignSubMenu);
+    observer.observe(trigger);
+    observer.observe(links);
+    window.addEventListener("resize", alignSubMenu);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", alignSubMenu);
+      links.style.transform = "";
+    };
+  }, [activeMenu]);
 
   useEffect(() => {
     if (!isMobileMenuOpen) return;
@@ -94,6 +128,7 @@ export default function Header() {
             {menus.map((menu, index) => (
               <div className="gnb-item" key={menu.path} onMouseEnter={() => setActiveMenu(index)}>
                 <Link
+                  ref={(node) => { menuTriggerRefs.current[index] = node; }}
                   to={menu.path}
                   className={`${activeMenu === index || pathname.startsWith(menu.path) ? "active" : ""}${menu.subMenu.length ? " has-submenu" : ""}`}
                   aria-expanded={menu.subMenu.length ? activeMenu === index : undefined}
@@ -126,7 +161,7 @@ export default function Header() {
           </nav>
         </div>
 
-        <Link to="/support" className="contact" onClick={closeMenu}>견적 문의</Link>
+        <Link to="/support/estimate" className="contact" onClick={closeMenu}>견적 문의</Link>
         <button
           type="button" className={`menu-toggle${isMobileMenuOpen ? " is-open" : ""}`}
           aria-label={isMobileMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
@@ -153,7 +188,7 @@ export default function Header() {
                   <Link to={selectedMenu.path} onClick={closeMenu}>전체 보기 <span aria-hidden="true">→</span></Link>
                 </div>
               )}
-              <div className="sub-menu-links">
+              <div className="sub-menu-links" ref={subMenuLinksRef}>
                 {selectedMenu.subMenu.map((item) => (
                   <Link key={item.path} to={item.path} onClick={closeMenu}>
                     {item.name}{item.note && <small>{item.note}</small>}

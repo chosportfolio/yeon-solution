@@ -33,6 +33,8 @@
 .sub-menu-clip { min-height: 0; overflow: hidden; }
 .sub-menu-inner { max-width: 1280px; margin: 0 auto; padding-inline: 48px; }
 .sub-menu-links { min-height: 64px; display: flex; justify-content: center; align-items: center; gap: 48px; }
+.sub-menu:not(.is-business) .sub-menu-inner { max-width: none; }
+.sub-menu:not(.is-business) .sub-menu-links { width: max-content; justify-content: flex-start; }
 .sub-menu-links a { color: #444; font-size: 14px; line-height: 1.5; }
 .sub-menu-links a:hover, .sub-menu-links a:focus-visible { color: #a50034; }
 .sub-menu-links small, .mobile-submenu small { display: block; color: #777; font-size: 12px; font-weight: 400; }

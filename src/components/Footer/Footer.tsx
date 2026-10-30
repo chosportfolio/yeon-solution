@@ -20,6 +20,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <nav className="footer-policy" aria-label="정책 안내">
+          <Link to="/admin">관리자 로그인</Link>
           <Link to="/terms">이용약관</Link>
           <Link to="/email-policy">이메일무단수집거부</Link>
           <Link to="/privacy" className="is-emphasis">

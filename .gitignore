@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Environment files (keep only the credential-free example)
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -28,3 +33,4 @@ dist-ssr
 /output/lg-outdoor-geo.html
 __pycache__/
 *.pyc
+/.local-data/

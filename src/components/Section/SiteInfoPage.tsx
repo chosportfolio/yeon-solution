@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { projectCategories } from "../../data/projectCategories";
-import { projects } from "../../data/projects";
+import { useProjects } from "../../context/useProjects";
+import { useAdmin } from "../../context/useAdmin";
 import ProjectGallery from "./ProjectGallery";
 import "./SiteInfoPage.css";
+import "../Projects/Projects.css";
 
 const policyTitles: Record<string, string> = {
   "/terms": "이용약관",
@@ -12,6 +14,8 @@ const policyTitles: Record<string, string> = {
 };
 
 export function ProjectsPage() {
+  const { projects, loading, error } = useProjects();
+  const { session } = useAdmin();
   const { projectCategory } = useParams();
   const activeCategory = projectCategories.find((category) => category.slug === (projectCategory ?? ""))?.category ?? "전체";
   const filteredProjects = activeCategory === "전체" ? projects : projects.filter((project) => project.category === activeCategory);
@@ -23,6 +27,7 @@ export function ProjectsPage() {
   }, [projectCategory]);
   return <section className="project-showcase section-container" id="projects" aria-labelledby="projects-title">
     <div className="project-showcase-heading"><p>OUR PROJECTS</p><h1 id="projects-title">시공 사례</h1></div>
+    {session && <div className="project-admin-actions"><Link to="/admin">게시글 관리</Link><Link to="/admin/projects/new">시공사례 글쓰기 +</Link></div>}
     <nav className="project-tabs" aria-label="시공사례 분류">
       {projectCategories.map((category) => (
         <Link
@@ -32,7 +37,7 @@ export function ProjectsPage() {
         >{category.name}</Link>
       ))}
     </nav>
-    <ProjectGallery key={projectCategory ?? "all"} projects={filteredProjects} />
+    {loading ? <p className="project-empty" role="status">시공사례를 불러오고 있습니다.</p> : error && !projects.length ? <p className="project-empty" role="status">시공사례를 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.</p> : <ProjectGallery key={projectCategory ?? "all"} projects={filteredProjects} />}
   </section>;
 }
 

@@ -1,0 +1,93 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { DatabaseSync } from 'node:sqlite';
+import { createProjectServer } from './index.mjs';
+
+test('관리자 인증, CSRF, 사진 검증, 게시글 CRUD와 재시작 후 보존', async t => {
+  const dataDir = await mkdtemp(join(tmpdir(), 'yeon-projects-test-'));
+  const password = 'test-only-long-password-42';
+  const origin = 'http://127.0.0.1:5173';
+  const options = { dataDir, username: 'admin', password, allowedOrigins: [origin] };
+  let server;
+  let base;
+  const start = async () => {
+    server = createProjectServer(options);
+    await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+    base = `http://127.0.0.1:${server.address().port}`;
+  };
+  const stop = () => new Promise(resolve => { server.closeAllConnections(); server.close(resolve); });
+  t.after(async () => { if (server?.listening) await stop(); await rm(dataDir, { recursive: true, force: true }); });
+  await start();
+  const request = (path, method = 'GET', payload, headers = {}) => fetch(`${base}/api${path}`, { method, headers: { Origin: origin, ...(payload === undefined ? {} : { 'Content-Type': 'application/json' }), ...headers }, body: payload === undefined ? undefined : JSON.stringify(payload) });
+  const login = async () => {
+    const response = await request('/admin/login', 'POST', { username: 'admin', password });
+    assert.equal(response.status, 200);
+    const header = response.headers.get('set-cookie');
+    assert.match(header, /HttpOnly/); assert.match(header, /SameSite=Strict/);
+    assert.ok(!header.includes(password));
+    const session = await response.json();
+    return { Cookie: header.split(';')[0], 'X-CSRF-Token': session.csrfToken };
+  };
+
+  const initial = await (await request('/projects')).json();
+  assert.equal(initial.projects.length, 6);
+  assert.equal((await request('/admin/session')).status, 401);
+  assert.equal((await fetch(`${base}/.env.local`)).status, 404);
+  assert.equal((await fetch(`${base}/.local-data/projects.sqlite`)).status, 404);
+  assert.equal((await request('/admin/login', 'POST', null)).status, 400);
+  assert.equal((await request('/projects', 'POST', {})).status, 401);
+  assert.equal((await request('/admin/login', 'POST', { username: 'admin', password: 'wrong' })).status, 401);
+  assert.equal((await request('/admin/login', 'POST', { username: 'admin', password }, { Origin: 'https://attacker.invalid' })).status, 403);
+  const auth = await login();
+  assert.equal((await request('/admin/session', 'GET', undefined, auth)).status, 200);
+  assert.equal((await request('/projects', 'POST', {}, { Cookie: auth.Cookie })).status, 403);
+  assert.equal((await request('/projects', 'POST', {}, { ...auth, 'X-CSRF-Token': 'forged' })).status, 403);
+  assert.equal((await request('/projects', 'POST', {}, { ...auth, Origin: 'https://attacker.invalid' })).status, 403);
+
+  const invalidUpload = await fetch(`${base}/api/uploads`, { method: 'POST', headers: { ...auth, Origin: origin, 'Content-Type': 'image/png' }, body: '<svg onload="alert(1)"></svg>' });
+  assert.equal(invalidUpload.status, 415);
+  const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aV6sAAAAASUVORK5CYII=', 'base64');
+  const upload = await fetch(`${base}/api/uploads`, { method: 'POST', headers: { ...auth, Origin: origin, 'Content-Type': 'image/png' }, body: png });
+  assert.equal(upload.status, 201);
+  const { image } = await upload.json();
+  assert.match(image, /^\/api\/media\/[a-f0-9-]+\.png$/);
+  const servedImage = await fetch(`${base}${image}`);
+  assert.equal(servedImage.headers.get('content-type'), 'image/png');
+  assert.equal(servedImage.headers.get('x-content-type-options'), 'nosniff');
+  assert.deepEqual(Buffer.from(await servedImage.arrayBuffer()), png);
+
+  const post = { name: '테스트 시공사례', category: '환기 시스템', image, blocks: [{ id: 'text-1', type: 'text', text: '<script>이 내용은 일반 텍스트입니다.</script>', style: 'body', align: 'left', bold: false }, { id: 'image-1', type: 'image', image, caption: '시험 사진' }] };
+  assert.equal((await request('/projects', 'POST', { ...post, category: 'unknown' }, auth)).status, 400);
+  assert.equal((await request('/projects', 'POST', { ...post, image: 'javascript:alert(1)' }, auth)).status, 400);
+  assert.equal((await request('/projects', 'POST', { ...post, name: 'x'.repeat(121) }, auth)).status, 400);
+  assert.equal((await request('/projects', 'POST', { ...post, blocks: [post.blocks[0], post.blocks[0]] }, auth)).status, 400);
+  const created = await request('/projects', 'POST', post, auth);
+  assert.equal(created.status, 201);
+  const { project } = await created.json();
+  assert.equal((await (await request('/projects')).json()).projects[0].id, project.id);
+  assert.equal((await request(`/projects/${project.id}`, 'DELETE')).status, 401);
+  const updated = await request(`/projects/${project.id}`, 'PUT', { ...post, name: '수정한 시공사례' }, auth);
+  assert.equal(updated.status, 200);
+  assert.equal((await updated.json()).project.name, '수정한 시공사례');
+  assert.equal((await request('/admin/logout', 'POST', undefined, auth)).status, 200);
+  assert.equal((await request(`/projects/${project.id}`, 'DELETE', undefined, auth)).status, 401);
+
+  await stop(); await start();
+  const persisted = (await (await request('/projects')).json()).projects;
+  assert.equal(persisted[0].name, '수정한 시공사례');
+  const reader = new DatabaseSync(join(dataDir, 'projects.sqlite'), { readOnly: true });
+  const stored = reader.prepare('SELECT password_hash FROM admins').get();
+  assert.notEqual(stored.password_hash, password); assert.match(stored.password_hash, /^[a-f0-9]{128}$/);
+  reader.close();
+  const secondAuth = await login();
+  assert.equal((await request(`/projects/${project.id}`, 'DELETE', undefined, secondAuth)).status, 200);
+  assert.equal((await fetch(`${base}${image}`)).status, 404, '다른 게시글에서 쓰지 않는 삭제한 글의 사진도 제거되어야 함');
+  assert.equal((await request('/projects/seoul-station', 'DELETE', undefined, secondAuth)).status, 200);
+  await stop(); await start();
+  assert.equal((await (await request('/projects')).json()).projects.length, 5, '삭제한 기존 글이 재시작 시 다시 생성되지 않아야 함');
+  for (let index = 0; index < 5; index++) assert.equal((await request('/admin/login', 'POST', { username: 'admin', password: 'incorrect' })).status, 401);
+  assert.equal((await request('/admin/login', 'POST', { username: 'admin', password })).status, 429);
+});

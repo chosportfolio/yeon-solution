@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import { projects } from "../../data/projects";
+import { Link } from "react-router-dom";
+import { useProjects } from "../../context/useProjects";
 import { projectCategories } from "../../data/projectCategories";
 import BusinessOverview from "./BusinessOverview";
 import { A11y } from "swiper/modules";
@@ -79,6 +80,7 @@ const certifications: Certification[] = [
 ];
 
 export default function MainSection() {
+  const { projects, loading: projectsLoading, error: projectsError } = useProjects();
   const projectSwiper = useRef<SwiperInstance | null>(null);
   const [activeCategory, setActiveCategory] = useState("전체");
   const [currentProject, setCurrentProject] = useState(0);
@@ -185,8 +187,9 @@ export default function MainSection() {
             onRealIndexChange={(swiper) => setCurrentProject(swiper.realIndex)}
           >
             {filteredProjects.map((project) => (
-              <SwiperSlide key={project.name}>
+              <SwiperSlide key={project.id}>
                 <article className="project-card">
+                  <Link to={`/projects/view/${project.id}`} aria-label={`${project.name} 시공사례 읽기`}>
                   <div className="project-image">
                     <img src={project.image} alt={`${project.name} 시공 현장`} />
                   </div>
@@ -194,12 +197,13 @@ export default function MainSection() {
                     <p>{project.category}</p>
                     <h3>{project.name}</h3>
                   </div>
+                  </Link>
                 </article>
               </SwiperSlide>
             ))}
           </Swiper>
         ) : (
-          <p className="project-empty">등록된 시공사례가 없습니다.</p>
+          <p className="project-empty" role="status">{projectsLoading ? "시공사례를 불러오고 있습니다." : projectsError ? "시공사례를 불러오지 못했습니다. 잠시 후 다시 확인해 주세요." : "등록된 시공사례가 없습니다."}</p>
         )}
 
         {filteredProjects.length > 0 && (
